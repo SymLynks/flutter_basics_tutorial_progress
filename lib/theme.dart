@@ -19,12 +19,14 @@ class AppTheme {
 
   static const TextStyle _lightHeadingText = TextStyle(
     color: _lightTextColorPrimary,
-    fontFamily: 'Rubik',
+    fontFamily: 'Roboto',
     fontWeight: FontWeight.bold,
+    fontSize: 16,
   );
   static const TextStyle _lightBodyText = TextStyle(
     color: _lightTextColorPrimary,
-    fontFamily: 'Rubik',
+    fontFamily: 'Roboto',
+    fontSize: 14,
   );
 
   static final TextStyle _darkHeadingText =
