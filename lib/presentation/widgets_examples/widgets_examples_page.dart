@@ -14,7 +14,6 @@ class WidgetsExamplesPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         centerTitle: true,
         leading: const Icon(Icons.home, size: 30),
         title: const Text("Widgets Examples"),

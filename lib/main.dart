@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_grundlagen/presentation/navigation_example_screens/screen1.dart';
 import 'package:flutter_grundlagen/presentation/navigation_example_screens/screen2.dart';
 import 'package:flutter_grundlagen/root.dart';
+import 'package:flutter_grundlagen/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,9 @@ class MyApp extends StatelessWidget {
         '/screen1': (BuildContext context) => const Screen1(),
         '/screen2': (BuildContext context) => const Screen2(),
       },
-      //home: const RootWidget(),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.dark,
     );
   }
 }
