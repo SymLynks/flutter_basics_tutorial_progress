@@ -5,15 +5,16 @@ class AppTheme {
 
   static final Color _lightPrimaryColor = Colors.blueGrey.shade50;
   static final Color _lightPrimaryVariantColor = Colors.blueGrey.shade800;
-  static final Color _lightOnPrimaryColor = Colors.blueGrey.shade200;
+  static final Color _lightOnPrimaryColor = Colors.blueGrey.shade50;
   static const Color _lightTextColorPrimary = Colors.black;
   static const Color _lightAppbarColor = Colors.blue;
+  static const Color _lightAppbarText = Colors.white;
 
   static final Color _darkPrimaryColor = Colors.blueGrey.shade900;
   static const Color _darkPrimaryVariantColor = Colors.black;
-  static final Color _darkOnPrimaryColor = Colors.blueGrey.shade300;
+  static final Color _darkOnPrimaryColor = Colors.blueGrey.shade800;
   static const Color _darkTextColorPrimary = Colors.white;
-  static final Color _darkAppbarColor = Colors.blueGrey.shade800;
+  static final Color _darkAppbarColor = Colors.blueGrey.shade700;
 
   static const Color _iconColor = Colors.white;
 
@@ -47,12 +48,14 @@ class AppTheme {
 
   static final ThemeData lightTheme = ThemeData(
     colorScheme: ColorScheme.light(
-        primary: _lightPrimaryColor,
-        onPrimary: _lightOnPrimaryColor,
-        primaryVariant: _lightPrimaryVariantColor),
+      primary: _lightPrimaryColor,
+      onPrimary: _lightOnPrimaryColor,
+      primaryVariant: _lightPrimaryVariantColor,
+    ),
     scaffoldBackgroundColor: _lightPrimaryColor,
     appBarTheme: const AppBarTheme(
       backgroundColor: _lightAppbarColor,
+      foregroundColor: _lightAppbarText,
       iconTheme: IconThemeData(color: _iconColor),
     ),
     bottomAppBarColor: _lightAppbarColor,
