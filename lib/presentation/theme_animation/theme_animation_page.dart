@@ -3,6 +3,7 @@ import 'package:flutter_grundlagen/application/theme_service.dart';
 import 'package:flutter_grundlagen/presentation/theme_animation/widgets/moon.dart';
 import 'package:flutter_grundlagen/presentation/theme_animation/widgets/star.dart';
 import 'package:flutter_grundlagen/presentation/theme_animation/widgets/sun.dart';
+import 'package:flutter_grundlagen/presentation/theme_animation/widgets/theme_switch.dart';
 import 'package:provider/provider.dart';
 
 class ThemeAnimationPage extends StatelessWidget {
@@ -27,7 +28,7 @@ class ThemeAnimationPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               elevation: 20,
               child: ConstrainedBox(
-                constraints: const BoxConstraints(minWidth: double.infinity),
+                constraints: const BoxConstraints(minWidth: 100, maxWidth: 500),
                 child: Container(
                   height: 500,
                   decoration: BoxDecoration(
@@ -49,16 +50,11 @@ class ThemeAnimationPage extends StatelessWidget {
                   ),
                   child: Stack(
                     children: [
-                      const Positioned(
-                          top: 70, right: 50, child: AnimatedStar()),
-                      const Positioned(
-                          top: 150, left: 60, child: AnimatedStar()),
-                      const Positioned(
-                          top: 40, left: 200, child: AnimatedStar()),
-                      const Positioned(
-                          top: 50, left: 50, child: AnimatedStar()),
-                      const Positioned(
-                          top: 100, right: 200, child: AnimatedStar()),
+                      const Positioned(top: 70, right: 50, child: AnimatedStar()),
+                      const Positioned(top: 150, left: 60, child: AnimatedStar()),
+                      const Positioned(top: 40, left: 200, child: AnimatedStar()),
+                      const Positioned(top: 50, left: 50, child: AnimatedStar()),
+                      const Positioned(top: 100, right: 200, child: AnimatedStar()),
                       AnimatedPositioned(
                         duration: const Duration(milliseconds: 400),
                         top: themeService.isDarkModeOn ? 100 : 130,
@@ -71,14 +67,14 @@ class ThemeAnimationPage extends StatelessWidget {
                       ),
                       AnimatedPadding(
                         duration: const Duration(milliseconds: 200),
-                        padding: EdgeInsets.only(
-                            top: themeService.isDarkModeOn ? 110 : 50),
+                        padding: EdgeInsets.only(top: themeService.isDarkModeOn ? 110 : 50),
                         child: const Center(child: Sun()),
                       ),
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
                           height: 225,
+                          width: double.infinity,
                           decoration: BoxDecoration(
                             color: _themeData.colorScheme.onPrimary,
                             borderRadius: const BorderRadius.only(
@@ -89,28 +85,27 @@ class ThemeAnimationPage extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('Test Heading',
+                              Text(themeService.isDarkModeOn ? 'Zu dunkel?' : 'Zu hell?',
                                   style: _themeData.textTheme.headline1),
                               const SizedBox(height: 15),
-                              Text('Test Body',
+                              Text(
+                                  themeService.isDarkModeOn ? 'Lass die Sonne aufgehen:' : 'Lass die Sonne untergehen:',
                                   style: _themeData.textTheme.bodyText1),
-                              const SizedBox(height: 15),
-                              Row(
+                              const SizedBox(height: 50),
+                              const ThemeSwitcher(),
+                              /*Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text('Dark Theme:',
-                                      style: _themeData.textTheme.bodyText1),
+                                  Text('Dark Theme:', style: _themeData.textTheme.bodyText1),
                                   const SizedBox(width: 15),
                                   Switch(
                                     value: themeService.isDarkModeOn,
                                     onChanged: (value) {
-                                      Provider.of<ThemeService>(context,
-                                              listen: false)
-                                          .toggleTheme();
+                                      Provider.of<ThemeService>(context, listen: false).toggleTheme();
                                     },
                                   ),
                                 ],
-                              ),
+                              ),*/
                             ],
                           ),
                         ),
